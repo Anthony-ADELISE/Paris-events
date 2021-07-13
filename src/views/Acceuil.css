@@ -1,0 +1,21 @@
+.acceuil-event{
+    margin-top: 70px;
+    margin-left: 5em;
+}
+
+.welcome > p {
+    padding-top: 20px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.actu-event{
+    margin-top: 50px;
+    
+}
+
+.actu-event > p {
+    padding-top: 10px;
+    font-size: 20px;
+}
