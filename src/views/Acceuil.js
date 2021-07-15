@@ -1,10 +1,23 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import './Acceuil.css';
 import { Card, Button} from 'react-bootstrap';
+import DATA from '../data/que-faire-a-paris-.json';
+import { Link } from 'react-router-dom';
 
-class Acceuil extends React.Component {
+
+function Acceuil () {
     
-    render(){
+    const [record, setRecord] = useState(null);
+
+    useEffect(() => {
+
+
+        setRecord(DATA[0]);
+
+    }, []);
+
+
     return (
         <div className="acceuil-event">
             <div className="welcome">
@@ -15,21 +28,23 @@ class Acceuil extends React.Component {
                 <h1>Actualité</h1>
                 <p>Le dernier évenement publié :</p>
             </div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+           { record && <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={record.fields.cover_url} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title><Link to={`event/${record.recordid}`}>{record.fields.title}</Link></Card.Title>
                     <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                        {record.fields.date_start}
+                    </Card.Text>
+                    <Card.Text>
+                    {record.fields.lead_text}
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
-            </Card>
+            </Card> 
+                }
         </div>
         
     )
-}
 }
 
 export default Acceuil;

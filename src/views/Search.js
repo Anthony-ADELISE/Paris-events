@@ -2,6 +2,7 @@ import React from 'react';
 import './Search.css';
 import { MDBCol, MDBIcon } from "mdbreact";
 import { Card, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Search extends React.Component {
     
@@ -62,12 +63,12 @@ class Search extends React.Component {
                     data.map(value =>  <Card className="card-style"  style={{ width: '20rem' }}>
                     <Card.Img className="card-img" variant="top" src={value.record.fields.cover_url} />
                     <Card.Body>
-                        <Card.Title className="card-title" >{value.record.fields.title}</Card.Title>
+                      <Card.Title className="card-title" ><Link to={`event/${value.record.id}`}>{value.record.fields.title}</Link></Card.Title>
                         <Card.Text>
-                        {value.record.fields.date_start}
+                           {value.record.fields.date_start}
                         </Card.Text>
                         <Card.Text>
-                        {value.record.fields.lead_text}
+                            {value.record.fields.lead_text}
                         </Card.Text>
                         <Button variant="primary">Go somewhere</Button>
                     </Card.Body>
