@@ -6,22 +6,9 @@ import NavigationBar from './views/NavigationBar';
 import 'react-bootstrap/dist/react-bootstrap.min.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import React from 'react';
-class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      search:[],
-      stats:[]
-    }
-  }
-  async componentDidMount(){
-    const resp = await fetch('https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records?search=')
-    const search = await resp.json()
-    this.setState({search});
-   /* this.state.search.forEach(async search => {
 
-    })*/
-  }
+class App extends React.Component {
+  
   render(){
     return (
       <div className="App">
