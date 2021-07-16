@@ -36,11 +36,11 @@ class Search extends React.Component {
       render(){
 
     const {data, search} = this.state;
-    console.log(search);
+    //console.log(search);
         
     return (
         <div className="search">
-           <h1>Lister de futur évenements à Paris</h1>
+           <h1>Lister de futurs événements à Paris</h1>
             <MDBCol md="6">
                 <form className="form-inline mt-4 mb-4">
             <MDBIcon />
@@ -56,7 +56,7 @@ class Search extends React.Component {
                 >Entrée</button>
                 </form>
             </MDBCol>
-            <h1>Résultat de la recherche</h1>
+            <h1>Résultats de la recherche</h1>
             <div className="card-display">
             {search ? 
                 data.length ? 

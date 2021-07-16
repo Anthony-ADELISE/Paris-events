@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './Acceuil.css';
 import { Card, Button} from 'react-bootstrap';
-import DATA from '../data/que-faire-a-paris-.json';
+//import DATA from '../data/que-faire-a-paris-.json';
 import { Link } from 'react-router-dom';
 
 
@@ -12,8 +12,13 @@ function Acceuil () {
 
     useEffect(() => {
 
+        fetch('https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records?sort=-date_start&rows=1')
 
-        setRecord(DATA[0]);
+        .then((res) => res.json())
+        .then((result) =>
+           setRecord(result.records[0])
+        )
+       //setRecord(DATA[0]);
 
     }, []);
 
@@ -29,14 +34,14 @@ function Acceuil () {
                 <p>Le dernier évenement publié :</p>
             </div>
            { record && <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={record.fields.cover_url} />
+                <Card.Img variant="top" src={record.record.fields.cover_url} />
                 <Card.Body>
-                    <Card.Title><Link to={`event/${record.recordid}`}>{record.fields.title}</Link></Card.Title>
+                    <Card.Title><Link to={`event/${record.record.id}`}>{record.record.fields.title}</Link></Card.Title>
                     <Card.Text>
-                        {record.fields.date_start}
+                        {record.record.fields.date_start}
                     </Card.Text>
                     <Card.Text>
-                    {record.fields.lead_text}
+                    {record.record.fields.lead_text}
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
