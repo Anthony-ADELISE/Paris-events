@@ -1,0 +1,13 @@
+.search{
+    margin-top: 70px;
+    margin-left: 5em;
+    color:black;
+}
+
+.card-display{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    align-items: stretch;
+
+}
