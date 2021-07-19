@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 //import DATA from '../data/que-faire-a-paris-.json'
 import { Card, Button, Container, Row, Image, Col} from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import './Evenement.css';
 
 
@@ -18,7 +19,6 @@ function Evenement() {
         .then((res) => res.json())
         .then((result) => {
         setEvent(result)
-        console.log("nsm",result)
     });
     // setEvent( 
         
@@ -33,26 +33,26 @@ function Evenement() {
             <Container>
             <Row className="row-grid">
               <Col className="grid-1" >
-              <Card.Title>{event?.record?.fields?.title}</Card.Title>
-              <Image src={event?.record?.fields?.cover_url} thumbnail />
-              <Card.Text>{event?.record?.fields?.lead_text}</Card.Text>
+                <Card.Title>{event?.record?.fields?.title}</Card.Title>
+                <Image className="img-card" src={event?.record?.fields?.cover_url} thumbnail />
+                <Card.Text>{event?.record?.fields?.lead_text}</Card.Text>
               </Col>
               <Col className="grid-2">
-              <Button variant="primary">Go somewhere</Button>
-              <Card.Title>Date </Card.Title>
-              <Card.Text>{event?.record?.fields?.date_description}</Card.Text>
-              <Card.Title>Prix </Card.Title>
-              <Card.Text>{event?.record?.fields?.price_type}</Card.Text>
-              <Card.Title>S'y rendre </Card.Title>
-              <Card.Text>{event?.record?.fields?.lat_long}</Card.Text>
-              <Card.Title>Transport </Card.Title>
-              <Card.Text>{event?.record?.fields?.transport}</Card.Text>
-              <Card.Title>Plus d'infos </Card.Title>
-              <Card.Text>{event?.record?.fields?.contact_phone}</Card.Text>
-              <Card.Text>{event?.record?.fields?.contact_facebook}</Card.Text>
-              <Card.Text>{event?.record?.fields?.contact_mail}</Card.Text>
-              <Card.Text>{event?.record?.fields?.contact_twitter}</Card.Text>
-              <Card.Text>{event?.record?.fields?.acess_link}</Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+                <Card.Title>Date </Card.Title>
+                <Card.Text>{event?.record?.fields?.date_description}</Card.Text>
+                <Card.Title>Prix </Card.Title>
+                <Card.Text>{event?.record?.fields?.price_type}</Card.Text>
+                <Card.Title>S'y rendre </Card.Title>
+                <Card.Text>{event?.record?.fields?.address_street}</Card.Text>
+                <Card.Title>Transport </Card.Title>
+                <Card.Text>{event?.record?.fields?.transport}</Card.Text>
+                <Card.Title>Plus d'infos </Card.Title>
+                <Card.Text><Link className='link-card'>{event?.record?.fields?.contact_phone}</Link></Card.Text>
+                <Card.Text><Link className='link-card'>{event?.record?.fields?.contact_facebook}</Link></Card.Text>
+                <Card.Text><Link className='link-card'>{event?.record?.fields?.contact_mail}</Link></Card.Text>
+                <Card.Text><Link className='link-card'>{event?.record?.fields?.contact_twitter}</Link></Card.Text>
+                <Card.Text><Link className='link-card'>{event?.record?.fields?.acess_link}</Link></Card.Text>
               
               </Col>
             </Row>

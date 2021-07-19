@@ -36,14 +36,14 @@ function Acceuil () {
            { record && <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={record.record.fields.cover_url} />
                 <Card.Body>
-                    <Card.Title><Link to={`event/${record.record.id}`}>{record.record.fields.title}</Link></Card.Title>
+                    <Card.Title><Link className="link-card" to={`event/${record.record.id}`}>{record.record.fields.title}</Link></Card.Title>
                     <Card.Text>
                         {record.record.fields.date_start}
                     </Card.Text>
                     <Card.Text>
                     {record.record.fields.lead_text}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="dark"> <i class="fas fa-heart"> FAV</i></Button>
                 </Card.Body>
             </Card> 
                 }

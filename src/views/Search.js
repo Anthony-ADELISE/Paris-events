@@ -73,10 +73,7 @@ class Search extends React.Component {
       render(){
 
     const {data, search} = this.state;
-    //console.log(search);
 
-    
-        
     return (
         <div className="search">
            <h1>Lister de futurs événements à Paris</h1>
@@ -101,14 +98,14 @@ class Search extends React.Component {
                     data.map(value =>  <Card key={value.record.id} className="card-style"  style={{ width: '20rem' }}>
                     <Card.Img className="card-img" variant="top" src={value.record.fields.cover_url} />
                     <Card.Body>
-                      <Card.Title className="card-title" ><Link to={`event/${value.record.id}`}>{value.record.fields.title}</Link></Card.Title>
+                      <Card.Title className="card-title" ><Link className="link-card" to={`event/${value.record.id}`}>{value.record.fields.title}</Link></Card.Title>
                         <Card.Text>
                            {value.record.fields.date_start}
                         </Card.Text>
                         <Card.Text>
                             {value.record.fields.lead_text}
                         </Card.Text>
-                        <Button variant="primary" onClick={() => this.handleFavoris (value)} >FAV</Button>
+                        <Button className="button-heart" variant="dark" onClick={() => this.handleFavoris (value)} ><i class="fas fa-heart"> FAV</i></Button>
                     </Card.Body>
                     </Card>)
                     :<p>aucun résultat</p>
